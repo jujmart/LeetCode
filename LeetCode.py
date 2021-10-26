@@ -33,38 +33,38 @@
 
 
 # Problem 278
-def firstBadVersion(n):
-    if n == 1:
-        return 1
-    stack = [n // 2]
-    left = 1
-    right = n
-    while len(stack) and left < right:
-        current = stack.pop()
-        print(current, left, right)
-        if isBadVersion(current):
-            right = current
-            # if right == left:
-            #     return left
-            # if current == left + 1:
-            #     return current
-        else:
-            left = current + 1
-        stack.append((right + left) // 2)
-    return left
+# def firstBadVersion(n):
+#     if n == 1:
+#         return 1
+#     stack = [n // 2]
+#     left = 1
+#     right = n
+#     while len(stack) and left < right:
+#         current = stack.pop()
+#         print(current, left, right)
+#         if isBadVersion(current):
+#             right = current
+#             # if right == left:
+#             #     return left
+#             # if current == left + 1:
+#             #     return current
+#         else:
+#             left = current + 1
+#         stack.append((right + left) // 2)
+#     return left
 
 
-def isBadVersion(n):
-    if n == 2:
-        return False
-    if n == 3:
-        return False
-    if n == 4:
-        return True
-    if n == 5:
-        return True
+# def isBadVersion(n):
+#     if n == 2:
+#         return False
+#     if n == 3:
+#         return False
+#     if n == 4:
+#         return True
+#     if n == 5:
+#         return True
 
 
-print(firstBadVersion(5))
-print(firstBadVersion(1))
-print(firstBadVersion(4))
+# print(firstBadVersion(5))
+# print(firstBadVersion(1))
+# print(firstBadVersion(4))
