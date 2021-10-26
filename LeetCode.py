@@ -68,3 +68,33 @@
 # print(firstBadVersion(5))
 # print(firstBadVersion(1))
 # print(firstBadVersion(4))
+
+# Problem 35
+# def searchInsert(nums, target):
+#     if (target < nums[0]):
+#         return 0
+#     if (target > nums[-1]):
+#         return len(nums)
+
+#     mid_idx = len(nums) // 2
+#     stack = [mid_idx]
+#     result = 0
+#     while len(stack):
+#         current_idx = stack.pop()
+#         current = nums[current_idx]
+#         if target == current or (target < current and target > nums[current_idx - 1]):
+#             return current_idx
+#         if target < current:
+#             stack.append((current_idx + result) // 2)
+#         else:
+#             result = current_idx
+#             stack.append((current_idx + len(nums)) // 2)
+#     return result
+
+
+# print(searchInsert([1, 3, 5, 6], 5))
+# print(searchInsert([1, 3, 5, 6], 2))
+# print(searchInsert([1, 3, 5, 6], 7))
+# print(searchInsert([1, 3, 5, 6], 0))
+# print(searchInsert([1], 0))
+# print(searchInsert([1, 3], 1))
