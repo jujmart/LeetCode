@@ -142,3 +142,27 @@
 # print(sortedSquares([0, 3, 10]))
 # print(sortedSquares([-13, -10, -5]))
 # print(sortedSquares([-1, 1]))
+
+
+# Problem 189
+# def rotate(nums, k):
+#     # Optimal Solution
+#     new_k = k % len(nums)
+#     nums[0:0] = nums[-new_k:]
+#     nums[-new_k:] = []
+#     return nums
+
+#     # My Solution
+#     # new_nums = nums[-new_k:] + nums[:-new_k]
+#     # for i in range(len(nums)):
+#     #     nums.pop()
+#     # # Another Solution (only for Python3 I think)
+#     # # nums.clear()
+#     # nums.extend(new_nums)
+#     # return nums
+
+
+# numbers = [1, 2, 3, 4, 5, 6, 7]
+# print(rotate(numbers, 3))
+# print(numbers)
+# print(rotate([-1, -100, 3, 99], 2))
