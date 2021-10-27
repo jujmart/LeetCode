@@ -98,3 +98,47 @@
 # print(searchInsert([1, 3, 5, 6], 0))
 # print(searchInsert([1], 0))
 # print(searchInsert([1, 3], 1))
+
+# Problem 977
+# def sortedSquares(nums):
+#     def square(num):
+#         return num ** 2
+#     if nums[0] >= 0:
+#         return list(map(square, nums))
+#     elif nums[-1] < 0:
+#         result = []
+#         for i in range(len(nums) - 1, -1, -1):
+#             result.append(square(nums[i]))
+#         return result
+#     else:
+#         left_pointer = -1
+#         idx = 1
+#         while left_pointer == -1:
+#             if nums[idx] >= 0:
+#                 left_pointer = idx - 1
+#             idx += 1
+
+#         result = []
+#         right_pointer = left_pointer + 1
+#         while right_pointer < len(nums) or left_pointer >= 0:
+#             if right_pointer >= len(nums):
+#                 result.append(square(nums[left_pointer]))
+#                 left_pointer -= 1
+#             elif left_pointer < 0:
+#                 result.append(square(nums[right_pointer]))
+#                 right_pointer += 1
+#             else:
+#                 if (square(nums[left_pointer]) < square(nums[right_pointer])):
+#                     result.append(square(nums[left_pointer]))
+#                     left_pointer -= 1
+#                 else:
+#                     result.append(square(nums[right_pointer]))
+#                     right_pointer += 1
+#         return result
+
+
+# print(sortedSquares([-4, -1, 0, 3, 10]))
+# print(sortedSquares([-7, -3, 2, 3, 11]))
+# print(sortedSquares([0, 3, 10]))
+# print(sortedSquares([-13, -10, -5]))
+# print(sortedSquares([-1, 1]))
