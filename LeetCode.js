@@ -6,32 +6,32 @@
 //                3 is duplicated, 2 is missing
 //                return 3 + 2
 
-function missingNum(nums) {
-	let obj = {};
-	for (let num of nums) {
-		if (obj[num]) {
-			obj[num] += 1;
-		} else {
-			obj[num] = 1;
-		}
-	}
+// function missingNum(nums) {
+// 	let obj = {};
+// 	for (let num of nums) {
+// 		if (obj[num]) {
+// 			obj[num] += 1;
+// 		} else {
+// 			obj[num] = 1;
+// 		}
+// 	}
 
-	let missNum;
-	for (let i = 1; i <= nums.length; i++) {
-		if (!obj[i]) {
-			missNum = i;
-		}
-	}
+// 	let missNum;
+// 	for (let i = 1; i <= nums.length; i++) {
+// 		if (!obj[i]) {
+// 			missNum = i;
+// 		}
+// 	}
 
-	let dupNum = 0;
-	for (let num in obj) {
-		if (obj[num] > 1) {
-			dupNum = +num;
-		}
-	}
+// 	let dupNum = 0;
+// 	for (let num in obj) {
+// 		if (obj[num] > 1) {
+// 			dupNum = +num;
+// 		}
+// 	}
 
-	return missNum + dupNum;
-}
+// 	return missNum + dupNum;
+// }
 
-console.log(missingNum([4, 3, 3, 1]));
-console.log(missingNum([1, 4, 2, 3, 4]));
+// console.log(missingNum([4, 3, 3, 1]));
+// console.log(missingNum([1, 4, 2, 3, 4]));
