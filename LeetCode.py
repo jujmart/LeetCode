@@ -168,21 +168,39 @@
 # print(rotate([-1, -100, 3, 99], 2))
 
 # Problem 283
-def moveZeroes(nums):
-    pointer = len(nums) - 1
-    idx = 0
-    while idx < pointer:
-        if nums[idx] == 0:
-            nums[idx:] = nums[idx + 1:]
-            nums.append(0)
-            pointer -= 1
-        else:
-            idx += 1
+# def moveZeroes(nums):
+#     pointer = len(nums) - 1
+#     idx = 0
+#     while idx < pointer:
+#         if nums[idx] == 0:
+#             nums[idx:] = nums[idx + 1:]
+#             nums.append(0)
+#             pointer -= 1
+#         else:
+#             idx += 1
 
 
-arr = [0, 1, 0, 3, 12]
-moveZeroes(arr)
-print(arr)
-arr2 = [0]
-moveZeroes(arr2)
-print(arr2)
+# arr = [0, 1, 0, 3, 12]
+# moveZeroes(arr)
+# print(arr)
+# arr2 = [0]
+# moveZeroes(arr2)
+# print(arr2)
+
+# Problem 167
+def twoSum(numbers, target):
+    obj = {}
+    for i in range(len(numbers)):
+        num = numbers[i]
+        obj[target - num] = i
+
+    for i in range(len(numbers)):
+        num = numbers[i]
+        if obj.get(num):
+            return [min(obj[num] + 1, i + 1), max(obj[num] + 1, i + 1)]
+
+
+print(twoSum([2, 7, 11, 15], 9))
+print(twoSum([2, 3, 4], 6))
+print(twoSum([-1, 0], -1))
+print(twoSum([5, 25, 75], 100))
