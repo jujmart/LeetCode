@@ -166,3 +166,23 @@
 # print(rotate(numbers, 3))
 # print(numbers)
 # print(rotate([-1, -100, 3, 99], 2))
+
+# Problem 283
+def moveZeroes(nums):
+    pointer = len(nums) - 1
+    idx = 0
+    while idx < pointer:
+        if nums[idx] == 0:
+            nums[idx:] = nums[idx + 1:]
+            nums.append(0)
+            pointer -= 1
+        else:
+            idx += 1
+
+
+arr = [0, 1, 0, 3, 12]
+moveZeroes(arr)
+print(arr)
+arr2 = [0]
+moveZeroes(arr2)
+print(arr2)
