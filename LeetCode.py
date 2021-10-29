@@ -217,3 +217,20 @@
 # str2 = ["H", "a", "n", "n", "a", "h"]
 # reverseString(str2)
 # print(str2)
+
+# Problem 557
+def reverseWords(s):
+    split = s.split(" ")
+    for i in range(len(split)):
+        word = split[i]
+        word_arr = []
+        for j in range(len(word) - 1, -1, -1):
+            word_arr.append(word[j])
+        split[i] = "".join(word_arr)
+    return " ".join(split)
+
+
+str1 = "Let's take LeetCode contest"
+print(reverseWords(str1))
+str2 = "God Ding"
+print(reverseWords(str2))
