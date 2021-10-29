@@ -188,19 +188,32 @@
 # print(arr2)
 
 # Problem 167
-def twoSum(numbers, target):
-    obj = {}
-    for i in range(len(numbers)):
-        num = numbers[i]
-        obj[target - num] = i
+# def twoSum(numbers, target):
+#     obj = {}
+#     for i in range(len(numbers)):
+#         num = numbers[i]
+#         obj[target - num] = i
 
-    for i in range(len(numbers)):
-        num = numbers[i]
-        if obj.get(num):
-            return [min(obj[num] + 1, i + 1), max(obj[num] + 1, i + 1)]
+#     for i in range(len(numbers)):
+#         num = numbers[i]
+#         if obj.get(num):
+#             return [min(obj[num] + 1, i + 1), max(obj[num] + 1, i + 1)]
 
 
-print(twoSum([2, 7, 11, 15], 9))
-print(twoSum([2, 3, 4], 6))
-print(twoSum([-1, 0], -1))
-print(twoSum([5, 25, 75], 100))
+# print(twoSum([2, 7, 11, 15], 9))
+# print(twoSum([2, 3, 4], 6))
+# print(twoSum([-1, 0], -1))
+# print(twoSum([5, 25, 75], 100))
+
+# Problem 344
+# def reverseString(s):
+#     for i in range(len(s)):
+#         s[i:i] = s.pop()
+
+
+# str1 = ["h", "e", "l", "l", "o"]
+# reverseString(str1)
+# print(str1)
+# str2 = ["H", "a", "n", "n", "a", "h"]
+# reverseString(str2)
+# print(str2)
