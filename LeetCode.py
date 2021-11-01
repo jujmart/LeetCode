@@ -219,18 +219,45 @@
 # print(str2)
 
 # Problem 557
-def reverseWords(s):
-    split = s.split(" ")
-    for i in range(len(split)):
-        word = split[i]
-        word_arr = []
-        for j in range(len(word) - 1, -1, -1):
-            word_arr.append(word[j])
-        split[i] = "".join(word_arr)
-    return " ".join(split)
+# def reverseWords(s):
+#     split = s.split(" ")
+#     for i in range(len(split)):
+#         word = split[i]
+#         word_arr = []
+#         for j in range(len(word) - 1, -1, -1):
+#             word_arr.append(word[j])
+#         split[i] = "".join(word_arr)
+#     return " ".join(split)
 
 
-str1 = "Let's take LeetCode contest"
-print(reverseWords(str1))
-str2 = "God Ding"
-print(reverseWords(str2))
+# str1 = "Let's take LeetCode contest"
+# print(reverseWords(str1))
+# str2 = "God Ding"
+# print(reverseWords(str2))
+
+# Problem 567
+def checkInclusion(s1, s2):
+    s1_len = len(s1)
+    s2_len = len(s2)
+
+    def letter_count(str):
+        obj = {}
+        for char in str:
+            if obj.get(char):
+                obj[char] += 1
+            else:
+                obj[char] = 1
+        return obj
+
+    c1 = letter_count(s1)
+    for i in range(s2_len - s1_len + 1):
+        c2 = letter_count(s2[i:i+s1_len])
+        if c1 == c2:
+            return True
+
+    return False
+
+
+print(checkInclusion("ab", "eidbaooo"))  # true
+print(checkInclusion("ab", "eidboaoo"))  # false
+print(checkInclusion("abc", "bbbca"))  # true
