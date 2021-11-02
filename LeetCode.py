@@ -263,35 +263,56 @@
 # print(checkInclusion("abc", "bbbca"))  # true
 
 # Problem 733
-def floodFill(image, sr, sc, newColor):
-    stack = [[sc, sr]]
-    old_color = image[sr][sc]
-    row_len = len(image[0])
-    col_len = len(image)
-    visited = set()
+# def floodFill(image, sr, sc, newColor):
+#     stack = [[sc, sr]]
+#     old_color = image[sr][sc]
+#     row_len = len(image[0])
+#     col_len = len(image)
+#     visited = set()
+#     while len(stack):
+#         current = stack.pop()
+#         x = current[0]
+#         y = current[1]
+
+#         if f"{x},{y}" in visited:
+#             continue
+#         visited.add(f"{x},{y}")
+
+#         if image[y][x] == old_color:
+#             image[y][x] = newColor
+#             if x + 1 < row_len:
+#                 stack.append([x + 1, y])
+#             if x - 1 >= 0:
+#                 stack.append([x - 1, y])
+#             if y + 1 < col_len:
+#                 stack.append([x, y + 1])
+#             if y - 1 >= 0:
+#                 stack.append([x, y - 1])
+#     return image
+
+
+# image1 = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
+# print(floodFill(image1, 1, 1, 2))
+# image2 = [[0, 0, 0], [0, 0, 0]]
+# print(floodFill(image2, 0, 0, 2))
+
+# Problem 695
+def maxAreaOfIsland(grid):
+    max = 0
+    stack = []
     while len(stack):
-        current = stack.pop()
-        x = current[0]
-        y = current[1]
-
-        if f"{x},{y}" in visited:
-            continue
-        visited.add(f"{x},{y}")
-
-        if image[y][x] == old_color:
-            image[y][x] = newColor
-            if x + 1 < row_len:
-                stack.append([x + 1, y])
-            if x - 1 >= 0:
-                stack.append([x - 1, y])
-            if y + 1 < col_len:
-                stack.append([x, y + 1])
-            if y - 1 >= 0:
-                stack.append([x, y - 1])
-    return image
+        pass
+    return max
 
 
-image1 = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
-print(floodFill(image1, 1, 1, 2))
-image2 = [[0, 0, 0], [0, 0, 0]]
-print(floodFill(image2, 0, 0, 2))
+grid1 = [[0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+         [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+         [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
+         [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+         [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+         [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]]
+print(maxAreaOfIsland(grid1))  # 6
+grid2 = [[0, 0, 0, 0, 0, 0, 0, 0]]
+print(maxAreaOfIsland(grid2))  # 0
