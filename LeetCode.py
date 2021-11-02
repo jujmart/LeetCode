@@ -236,28 +236,36 @@
 # print(reverseWords(str2))
 
 # Problem 567
-def checkInclusion(s1, s2):
-    s1_len = len(s1)
-    s2_len = len(s2)
+# def checkInclusion(s1, s2):
+#     s1_len = len(s1)
+#     s2_len = len(s2)
 
-    def letter_count(str):
-        obj = {}
-        for char in str:
-            if obj.get(char):
-                obj[char] += 1
-            else:
-                obj[char] = 1
-        return obj
+#     def letter_count(str):
+#         obj = {}
+#         for char in str:
+#             if obj.get(char):
+#                 obj[char] += 1
+#             else:
+#                 obj[char] = 1
+#         return obj
 
-    c1 = letter_count(s1)
-    for i in range(s2_len - s1_len + 1):
-        c2 = letter_count(s2[i:i+s1_len])
-        if c1 == c2:
-            return True
+#     c1 = letter_count(s1)
+#     for i in range(s2_len - s1_len + 1):
+#         c2 = letter_count(s2[i:i+s1_len])
+#         if c1 == c2:
+#             return True
 
-    return False
+#     return False
 
 
-print(checkInclusion("ab", "eidbaooo"))  # true
-print(checkInclusion("ab", "eidboaoo"))  # false
-print(checkInclusion("abc", "bbbca"))  # true
+# print(checkInclusion("ab", "eidbaooo"))  # true
+# print(checkInclusion("ab", "eidboaoo"))  # false
+# print(checkInclusion("abc", "bbbca"))  # true
+
+# Problem 733
+def floodFill(image, sr, sc, newColor):
+    print
+
+
+print(floodFill([[1, 1, 1], [1, 1, 0], [1, 0, 1]], 1, 1, 2))
+print(floodFill([[0, 0, 0], [0, 0, 0]], 0, 0, 2))
