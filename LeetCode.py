@@ -365,4 +365,53 @@
 # grid2 = [[0, 0, 0, 0, 0, 0, 0, 0]]
 # print(maxAreaOfIsland(grid2))  # 0
 
+
 # Problem 617
+def mergeTrees(root1, root2):
+    if not root1 and not root2:
+        return None
+    stack1 = [root1]
+    stack2 = [root2]
+    new_tree = TreeNode()
+    current_tree_stack = [new_tree]
+    while len(stack1) or len(stack2):
+        current1 = stack1.pop()
+        current2 = stack2.pop()
+        current_tree = current_tree_stack.pop()
+        if not current1 and not current2:
+            continue
+        elif not current1:
+            current_tree.val = current2.val
+            if current2.left:
+                stack1.append(None)
+                stack2.append(current2.left)
+                current_tree.left = TreeNode()
+                current_tree_stack.append(current_tree.left)
+            if current2.right:
+                stack1.append(None)
+                stack2.append(current2.right)
+                current_tree.right = TreeNode()
+                current_tree_stack.append(current_tree.right)
+        elif not current2:
+            current_tree.val = current1.val
+            if current1.left:
+                stack2.append(None)
+                stack1.append(current1.left)
+                current_tree.left = TreeNode()
+                current_tree_stack.append(current_tree.left)
+            if current1.right:
+                stack2.append(None)
+                stack1.append(current1.right)
+                current_tree.right = TreeNode()
+                current_tree_stack.append(current_tree.right)
+        else:
+            current_tree.val = current1.val + current2.val
+            if current1.left or current2.left:
+                current_tree.left = TreeNode()
+            if current1.right or current2.right:
+                current_tree.right = TreeNode()
+            stack1.extend([current1.left, current1.right])
+            stack2.extend([current2.left, current2.right])
+            current_tree_stack.extend([current_tree.left, current_tree.right])
+
+    return new_tree
