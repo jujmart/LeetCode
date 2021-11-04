@@ -297,70 +297,72 @@
 # print(floodFill(image2, 0, 0, 2))
 
 # Problem 695
-def maxAreaOfIsland(grid):
-    rows = len(grid)
-    cols = len(grid[0])
+# def maxAreaOfIsland(grid):
+#     rows = len(grid)
+#     cols = len(grid[0])
 
-    max_island = 0
-    for i in range(rows):
-        for j in range(cols):
-            if grid[i][j] == 1:
-                max_island = max(dfs(grid, i, j, rows, cols), max_island)
-    return max_island
-
-
-def dfs(grid, i, j, rows, cols):
-    if(i >= rows or j >= cols or i < 0 or j < 0):
-        return 0
-    if(grid[i][j] != 1):
-        return 0
-    grid[i][j] = 2
-    return 1+dfs(grid, i+1, j, rows, cols)+dfs(grid, i-1, j, rows, cols)+dfs(grid, i, j+1, rows, cols)+dfs(grid, i, j-1, rows, cols)
-
-    # My NONWORKING Solution
-    # ****************************
-    # max_area = 0
-    # row_len = len(grid[0])
-    # col_len = len(grid)
-    # visited = set()
-    # stack = [[0, 0, 0]]
-    # while len(stack):
-    #     current = stack.pop()
-    #     x = current[0]
-    #     y = current[1]
-    #     total = current[2]
-
-    #     if f"{x},{y}" in visited:
-    #         continue
-    #     visited.add(f"{x},{y}")
-    #     print(f"{x},{y}")
-    #     if grid[y][x] == 1:
-    #         total += 1
-    #     else:
-    #         max_area = max(max_area, total)
-    #         total = 0
-
-    #     print(total)
-    #     if x + 1 < row_len:
-    #         stack.append([x + 1, y, total])
-    #     if x - 1 >= 0:
-    #         stack.append([x - 1, y, total])
-    #     if y + 1 < col_len:
-    #         stack.append([x, y + 1, total])
-    #     if y - 1 >= 0:
-    #         stack.append([x, y - 1, total])
-
-    # return max_area
+#     max_island = 0
+#     for i in range(rows):
+#         for j in range(cols):
+#             if grid[i][j] == 1:
+#                 max_island = max(dfs(grid, i, j, rows, cols), max_island)
+#     return max_island
 
 
-grid1 = [[0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-         [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-         [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-         [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
-         [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
-         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
-         [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-         [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]]
-print(maxAreaOfIsland(grid1))  # 6
-grid2 = [[0, 0, 0, 0, 0, 0, 0, 0]]
-print(maxAreaOfIsland(grid2))  # 0
+# def dfs(grid, i, j, rows, cols):
+#     if(i >= rows or j >= cols or i < 0 or j < 0):
+#         return 0
+#     if(grid[i][j] != 1):
+#         return 0
+#     grid[i][j] = 2
+#     return 1+dfs(grid, i+1, j, rows, cols)+dfs(grid, i-1, j, rows, cols)+dfs(grid, i, j+1, rows, cols)+dfs(grid, i, j-1, rows, cols)
+
+#     # My NONWORKING Solution
+#     # ****************************
+#     # max_area = 0
+#     # row_len = len(grid[0])
+#     # col_len = len(grid)
+#     # visited = set()
+#     # stack = [[0, 0, 0]]
+#     # while len(stack):
+#     #     current = stack.pop()
+#     #     x = current[0]
+#     #     y = current[1]
+#     #     total = current[2]
+
+#     #     if f"{x},{y}" in visited:
+#     #         continue
+#     #     visited.add(f"{x},{y}")
+#     #     print(f"{x},{y}")
+#     #     if grid[y][x] == 1:
+#     #         total += 1
+#     #     else:
+#     #         max_area = max(max_area, total)
+#     #         total = 0
+
+#     #     print(total)
+#     #     if x + 1 < row_len:
+#     #         stack.append([x + 1, y, total])
+#     #     if x - 1 >= 0:
+#     #         stack.append([x - 1, y, total])
+#     #     if y + 1 < col_len:
+#     #         stack.append([x, y + 1, total])
+#     #     if y - 1 >= 0:
+#     #         stack.append([x, y - 1, total])
+
+#     # return max_area
+
+
+# grid1 = [[0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+#          [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+#          [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+#          [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
+#          [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
+#          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+#          [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+#          [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]]
+# print(maxAreaOfIsland(grid1))  # 6
+# grid2 = [[0, 0, 0, 0, 0, 0, 0, 0]]
+# print(maxAreaOfIsland(grid2))  # 0
+
+# Problem 617
