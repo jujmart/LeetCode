@@ -418,4 +418,35 @@
 
 # Problem 34
 def searchRange(nums, target):
-    pass
+    result = [-1, -1]
+    stack = [[nums, 0]]
+    while len(stack):
+        current = stack.pop()
+        current_lst = current[0]
+        add_idx = current[1]
+
+        if len(current_lst) == 0:
+            continue
+
+        mid_idx = len(current_lst) // 2
+        total_idx = mid_idx + add_idx
+
+        if target == current_lst[mid_idx]:
+            if result[0] == -1:
+                result[0] = total_idx
+            if result[1] == -1:
+                result[1] = total_idx
+            result = [min(result[0], total_idx), max(result[1], total_idx)]
+            stack.extend([[current_lst[:mid_idx], add_idx], [
+                         current_lst[mid_idx + 1:], total_idx + 1]])
+        elif target < current_lst[mid_idx]:
+            stack.append([current_lst[:mid_idx], add_idx])
+        elif target > current_lst[mid_idx]:
+            stack.append([current_lst[mid_idx + 1:], total_idx + 1])
+
+    return result
+
+
+print(searchRange([5, 7, 7, 8, 8, 10], 8))
+print(searchRange([5, 7, 7, 8, 8, 10], 6))
+print(searchRange([], 0))
