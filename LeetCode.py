@@ -449,4 +449,4 @@ def searchRange(nums, target):
 
 print(searchRange([5, 7, 7, 8, 8, 10], 8))
 print(searchRange([5, 7, 7, 8, 8, 10], 6))
-print(searchRange([], 0))
+# print(searchRange([], 0))
