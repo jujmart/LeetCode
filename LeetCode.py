@@ -449,4 +449,162 @@ def searchRange(nums, target):
 
 print(searchRange([5, 7, 7, 8, 8, 10], 8))
 print(searchRange([5, 7, 7, 8, 8, 10], 6))
-# print(searchRange([], 0))
+print(searchRange([], 0))
+
+
+# Sisu Problem
+data = [
+    {"age": 15, "gender": 'M', "time_of_day": 'morning',
+        "order_contents": 'Happy Meal'},
+    {"age": 21, "gender": 'F', "time_of_day": 'afternoon',
+        "order_contents": 'McFlurry'},
+    {"age": 22, "gender": 'F', "time_of_day": 'evening', "order_contents": 'Big Mac'},
+    {"age": 28, "gender": 'N/A', "time_of_day": 'morning',
+        "order_contents": 'Dollar Menu'}
+]
+
+
+# 15  M  morning  Happy Meal
+# 15  M  morning  McFlurry
+# 15  M  morning  Big Mac
+# 15  M  morning  Dollar Menu
+# 15  M  afternoon  Happy Meal
+# 15  M  afternoon  McFlurry
+# 15  M  afternoon  Big Mac
+# 15  M  afternoon  Dollar Menu
+# 15  M  evening  Happy Meal
+# 15  M  evening  McFlurry
+# 15  M  evening  Big Mac
+# 15  M  evening  Dollar Menu
+# 15  F  morning  Happy Meal
+# 15  F  morning  McFlurry
+# 15  F  morning  Big Mac
+# 15  F  morning  Dollar Menu
+# 15  F  afternoon  Happy Meal
+# 15  F  afternoon  McFlurry
+# 15  F  afternoon  Big Mac
+# 15  F  afternoon  Dollar Menu
+# 15  F  evening  Happy Meal
+# 15  F  evening  McFlurry
+# 15  F  evening  Big Mac
+# 15  F  evening  Dollar Menu
+# 15  N/A  morning  Happy Meal
+# 15  N/A  morning  McFlurry
+# 15  N/A  morning  Big Mac
+# 15  N/A  morning  Dollar Menu
+# 15  N/A  afternoon  Happy Meal
+# 15  N/A  afternoon  McFlurry
+# 15  N/A  afternoon  Big Mac
+# 15  N/A  afternoon  Dollar Menu
+# 15  N/A  evening  Happy Meal
+# 15  N/A  evening  McFlurry
+# 15  N/A  evening  Big Mac
+# 15  N/A  evening  Dollar Menu
+# 21  M  morning  Happy Meal
+# 21  M  morning  McFlurry
+# 21  M  morning  Big Mac
+# 21  M  morning  Dollar Menu
+# 21  M  afternoon  Happy Meal
+# 21  M  afternoon  McFlurry
+# 21  M  afternoon  Big Mac
+# 21  M  afternoon  Dollar Menu
+# 21  M  evening  Happy Meal
+# 21  M  evening  McFlurry
+# 21  M  evening  Big Mac
+# 21  M  evening  Dollar Menu
+# 21  F  morning  Happy Meal
+# 21  F  morning  McFlurry
+# 21  F  morning  Big Mac
+# 21  F  morning  Dollar Menu
+# 21  F  afternoon  Happy Meal
+# 21  F  afternoon  McFlurry
+# 21  F  afternoon  Big Mac
+# 21  F  afternoon  Dollar Menu
+# 21  F  evening  Happy Meal
+# 21  F  evening  McFlurry
+# 21  F  evening  Big Mac
+# 21  F  evening  Dollar Menu
+# 21  N/A  morning  Happy Meal
+# 21  N/A  morning  McFlurry
+# 21  N/A  morning  Big Mac
+# 21  N/A  morning  Dollar Menu
+# 21  N/A  afternoon  Happy Meal
+# 21  N/A  afternoon  McFlurry
+# 21  N/A  afternoon  Big Mac
+# 21  N/A  afternoon  Dollar Menu
+# 21  N/A  evening  Happy Meal
+# 21  N/A  evening  McFlurry
+# 21  N/A  evening  Big Mac
+# 21  N/A  evening  Dollar Menu
+# 22  M  morning  Happy Meal
+# 22  M  morning  McFlurry
+# 22  M  morning  Big Mac
+# 22  M  morning  Dollar Menu
+# 22  M  afternoon  Happy Meal
+# 22  M  afternoon  McFlurry
+# 22  M  afternoon  Big Mac
+# 22  M  afternoon  Dollar Menu
+# 22  M  evening  Happy Meal
+# 22  M  evening  McFlurry
+# 22  M  evening  Big Mac
+# 22  M  evening  Dollar Menu
+# 22  F  morning  Happy Meal
+# 22  F  morning  McFlurry
+# 22  F  morning  Big Mac
+# 22  F  morning  Dollar Menu
+# 22  F  afternoon  Happy Meal
+# 22  F  afternoon  McFlurry
+# 22  F  afternoon  Big Mac
+# 22  F  afternoon  Dollar Menu
+# 22  F  evening  Happy Meal
+# 22  F  evening  McFlurry
+# 22  F  evening  Big Mac
+# 22  F  evening  Dollar Menu
+# 22  N/A  morning  Happy Meal
+# 22  N/A  morning  McFlurry
+# 22  N/A  morning  Big Mac
+# 22  N/A  morning  Dollar Menu
+# 22  N/A  afternoon  Happy Meal
+# 22  N/A  afternoon  McFlurry
+# 22  N/A  afternoon  Big Mac
+# 22  N/A  afternoon  Dollar Menu
+# 22  N/A  evening  Happy Meal
+# 22  N/A  evening  McFlurry
+# 22  N/A  evening  Big Mac
+# 22  N/A  evening  Dollar Menu
+# 28  M  morning  Happy Meal
+# 28  M  morning  McFlurry
+# 28  M  morning  Big Mac
+# 28  M  morning  Dollar Menu
+# 28  M  afternoon  Happy Meal
+# 28  M  afternoon  McFlurry
+# 28  M  afternoon  Big Mac
+# 28  M  afternoon  Dollar Menu
+# 28  M  evening  Happy Meal
+# 28  M  evening  McFlurry
+# 28  M  evening  Big Mac
+# 28  M  evening  Dollar Menu
+# 28  F  morning  Happy Meal
+# 28  F  morning  McFlurry
+# 28  F  morning  Big Mac
+# 28  F  morning  Dollar Menu
+# 28  F  afternoon  Happy Meal
+# 28  F  afternoon  McFlurry
+# 28  F  afternoon  Big Mac
+# 28  F  afternoon  Dollar Menu
+# 28  F  evening  Happy Meal
+# 28  F  evening  McFlurry
+# 28  F  evening  Big Mac
+# 28  F  evening  Dollar Menu
+# 28  N/A  morning  Happy Meal
+# 28  N/A  morning  McFlurry
+# 28  N/A  morning  Big Mac
+# 28  N/A  morning  Dollar Menu
+# 28  N/A  afternoon  Happy Meal
+# 28  N/A  afternoon  McFlurry
+# 28  N/A  afternoon  Big Mac
+# 28  N/A  afternoon  Dollar Menu
+# 28  N/A  evening  Happy Meal
+# 28  N/A  evening  McFlurry
+# 28  N/A  evening  Big Mac
+# 28  N/A  evening  Dollar Menu
