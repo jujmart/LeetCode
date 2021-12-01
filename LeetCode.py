@@ -417,52 +417,51 @@
 #     return new_tree
 
 # Problem 34
-def searchRange(nums, target):
-    result = [-1, -1]
-    stack = [[nums, 0]]
-    while len(stack):
-        current = stack.pop()
-        current_lst = current[0]
-        add_idx = current[1]
+# def searchRange(nums, target):
+#     result = [-1, -1]
+#     stack = [[nums, 0]]
+#     while len(stack):
+#         current = stack.pop()
+#         current_lst = current[0]
+#         add_idx = current[1]
 
-        if len(current_lst) == 0:
-            continue
+#         if len(current_lst) == 0:
+#             continue
 
-        mid_idx = len(current_lst) // 2
-        total_idx = mid_idx + add_idx
+#         mid_idx = len(current_lst) // 2
+#         total_idx = mid_idx + add_idx
 
-        if target == current_lst[mid_idx]:
-            if result[0] == -1:
-                result[0] = total_idx
-            if result[1] == -1:
-                result[1] = total_idx
-            result = [min(result[0], total_idx), max(result[1], total_idx)]
-            stack.extend([[current_lst[:mid_idx], add_idx], [
-                         current_lst[mid_idx + 1:], total_idx + 1]])
-        elif target < current_lst[mid_idx]:
-            stack.append([current_lst[:mid_idx], add_idx])
-        elif target > current_lst[mid_idx]:
-            stack.append([current_lst[mid_idx + 1:], total_idx + 1])
+#         if target == current_lst[mid_idx]:
+#             if result[0] == -1:
+#                 result[0] = total_idx
+#             if result[1] == -1:
+#                 result[1] = total_idx
+#             result = [min(result[0], total_idx), max(result[1], total_idx)]
+#             stack.extend([[current_lst[:mid_idx], add_idx], [
+#                          current_lst[mid_idx + 1:], total_idx + 1]])
+#         elif target < current_lst[mid_idx]:
+#             stack.append([current_lst[:mid_idx], add_idx])
+#         elif target > current_lst[mid_idx]:
+#             stack.append([current_lst[mid_idx + 1:], total_idx + 1])
 
-    return result
+#     return result
 
 
-print(searchRange([5, 7, 7, 8, 8, 10], 8))
-print(searchRange([5, 7, 7, 8, 8, 10], 6))
-print(searchRange([], 0))
+# print(searchRange([5, 7, 7, 8, 8, 10], 8))
+# print(searchRange([5, 7, 7, 8, 8, 10], 6))
+# print(searchRange([], 0))
 
 
 # Sisu Problem
-data = [
-    {"age": 15, "gender": 'M', "time_of_day": 'morning',
-        "order_contents": 'Happy Meal'},
-    {"age": 21, "gender": 'F', "time_of_day": 'afternoon',
-        "order_contents": 'McFlurry'},
-    {"age": 22, "gender": 'F', "time_of_day": 'evening', "order_contents": 'Big Mac'},
-    {"age": 28, "gender": 'N/A', "time_of_day": 'morning',
-        "order_contents": 'Dollar Menu'}
-]
-
+# data = [
+#     {"age": 15, "gender": 'M', "time_of_day": 'morning',
+#         "order_contents": 'Happy Meal'},
+#     {"age": 21, "gender": 'F', "time_of_day": 'afternoon',
+#         "order_contents": 'McFlurry'},
+#     {"age": 22, "gender": 'F', "time_of_day": 'evening', "order_contents": 'Big Mac'},
+#     {"age": 28, "gender": 'N/A', "time_of_day": 'morning',
+#         "order_contents": 'Dollar Menu'}
+# ]
 
 # 15  M  morning  Happy Meal
 # 15  M  morning  McFlurry
@@ -608,3 +607,13 @@ data = [
 # 28  N/A  evening  McFlurry
 # 28  N/A  evening  Big Mac
 # 28  N/A  evening  Dollar Menu
+
+
+# Problem 18
+def fourSum(nums, target):
+    pass
+
+
+print(fourSum([1, 0, -1, 0, -2, 2],0))
+print(fourSum([2,2,2,2,2],8))
+
