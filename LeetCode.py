@@ -636,10 +636,10 @@
 # print(fourSum([2, 2, 2, 2, 2], 8))
 
 # Problem 40
-def combinationSum(candidates, target):
+def mergeTwoLists(list1, list2):
     pass
 
 
-print(combinationSum([10, 1, 2, 7, 6, 1, 5], 8))
-# [[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]]
-print(combinationSum([2, 5, 2, 1, 2], 5))  # [[1, 2, 2], [5]]
+print(mergeTwoLists([1, 2, 4], [1, 3, 4]))  # [1,1,2,3,4,4]
+print(mergeTwoLists([], []))  # []
+print(mergeTwoLists([], [0]))  # [0]
