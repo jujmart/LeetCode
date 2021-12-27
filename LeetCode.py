@@ -669,19 +669,28 @@
 
 
 # Problem 206
-def reverseList(head):
-    if not head:
-        return head
-    stack = []
-    current = head
-    while current:
-        stack.append(current.val)
-        current = current.next
+# def reverseList(head):
+#     if not head:
+#         return head
+#     stack = []
+#     current = head
+#     while current:
+#         stack.append(current.val)
+#         current = current.next
 
-    new_head = ListNode(stack.pop())
-    current_head = new_head
-    while len(stack):
-        current_val = stack.pop()
-        current_head.next = ListNode(current_val)
-        current_head = current_head.next
-    return new_head
+#     new_head = ListNode(stack.pop())
+#     current_head = new_head
+#     while len(stack):
+#         current_val = stack.pop()
+#         current_head.next = ListNode(current_val)
+#         current_head = current_head.next
+#     return new_head
+
+
+# Problem 77
+def combine(n, k):
+    pass
+
+
+print(combine(4, 2))  # [[2,4], [3,4], [2,3], [1,2], [1,3], [1,4]]
+print(combine(1, 1))  # [[1]]
