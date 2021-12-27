@@ -689,7 +689,27 @@
 
 # Problem 77
 def combine(n, k):
-    pass
+    current = []
+    result = set()
+
+    def checkCurrent(num, k):
+        length = len(current)
+        for i in range(length):
+            new_arr = current[i][:]
+            new_arr.append(num)
+            if len(new_arr) < k:
+                current.append(new_arr)
+            elif len(new_arr) == k:
+                result.add(tuple(new_arr))
+        current.append([num])
+
+    if k == 1:
+        for i in range(n):
+            result.add(tuple([i + 1]))
+        return result
+    for i in range(n):
+        checkCurrent(i + 1, k)
+    return result
 
 
 print(combine(4, 2))  # [[2,4], [3,4], [2,3], [1,2], [1,3], [1,4]]
