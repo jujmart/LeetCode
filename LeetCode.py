@@ -636,38 +636,52 @@
 # print(fourSum([2, 2, 2, 2, 2], 8))
 
 # Problem 21
-def mergeTwoLists(list1, list2):
-    head = ListNode()
-    if not list1:
-        return list2
-    if not list2:
-        return list1
-    if list1.val < list2.val:
-        head.val = list1.val
-        current_list1 = list1.next
-        current_list2 = list2
-    else:
-        head.val = list2.val
-        current_list1 = list1
-        current_list2 = list2.next
+# def mergeTwoLists(list1, list2):
+#     head = ListNode()
+#     if not list1:
+#         return list2
+#     if not list2:
+#         return list1
+#     if list1.val < list2.val:
+#         head.val = list1.val
+#         current_list1 = list1.next
+#         current_list2 = list2
+#     else:
+#         head.val = list2.val
+#         current_list1 = list1
+#         current_list2 = list2.next
+#     current = head
+#     while current_list1 and current_list2:
+#         if current_list1.val < current_list2.val:
+#             current.next = ListNode(current_list1.val)
+#             current = current.next
+#             current_list1 = current_list1.next
+#         else:
+#             current.next = ListNode(current_list2.val)
+#             current = current.next
+#             current_list2 = current_list2.next
+
+#     if current_list1:
+#         current.next = current_list1
+#     if current_list2:
+#         current.next = current_list2
+#     return head
+
+
+# Problem 206
+def reverseList(head):
+    if not head:
+        return head
+    stack = []
     current = head
-    while current_list1 and current_list2:
-        if current_list1.val < current_list2.val:
-            current.next = ListNode(current_list1.val)
-            current = current.next
-            current_list1 = current_list1.next
-        else:
-            current.next = ListNode(current_list2.val)
-            current = current.next
-            current_list2 = current_list2.next
+    while current:
+        stack.append(current.val)
+        current = current.next
 
-    if current_list1:
-        current.next = current_list1
-    if current_list2:
-        current.next = current_list2
-    return head
-
-
-print(mergeTwoLists([1, 2, 4], [1, 3, 4]))  # [1,1,2,3,4,4]
-print(mergeTwoLists([], []))  # []
-print(mergeTwoLists([], [0]))  # [0]
+    new_head = ListNode(stack.pop())
+    current_head = new_head
+    while len(stack):
+        current_val = stack.pop()
+        current_head.next = ListNode(current_val)
+        current_head = current_head.next
+    return new_head
