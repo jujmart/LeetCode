@@ -635,9 +635,37 @@
 # print(fourSum([1, 0, -1, 0, -2, 2], 0))
 # print(fourSum([2, 2, 2, 2, 2], 8))
 
-# Problem 40
+# Problem 21
 def mergeTwoLists(list1, list2):
-    pass
+    head = ListNode()
+    if not list1:
+        return list2
+    if not list2:
+        return list1
+    if list1.val < list2.val:
+        head.val = list1.val
+        current_list1 = list1.next
+        current_list2 = list2
+    else:
+        head.val = list2.val
+        current_list1 = list1
+        current_list2 = list2.next
+    current = head
+    while current_list1 and current_list2:
+        if current_list1.val < current_list2.val:
+            current.next = ListNode(current_list1.val)
+            current = current.next
+            current_list1 = current_list1.next
+        else:
+            current.next = ListNode(current_list2.val)
+            current = current.next
+            current_list2 = current_list2.next
+
+    if current_list1:
+        current.next = current_list1
+    if current_list2:
+        current.next = current_list2
+    return head
 
 
 print(mergeTwoLists([1, 2, 4], [1, 3, 4]))  # [1,1,2,3,4,4]
