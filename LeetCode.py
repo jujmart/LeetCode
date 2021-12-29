@@ -738,7 +738,24 @@
 
 # Problem 15
 def threeSum(nums):
-    pass
+    if not nums or len(nums) < 3:
+        return []
+    result = set()
+    nums_sorted = sorted(nums)
+    length = len(nums_sorted)
+    for i, num in enumerate(nums_sorted):
+        left = i + 1
+        right = length - 1
+        while left < right:
+            sum = num + nums_sorted[left] + nums_sorted[right]
+            if sum == 0:
+                result.add(tuple([num, nums_sorted[left], nums_sorted[right]]))
+                right -= 1
+            elif sum > 0:
+                right -= 1
+            elif sum < 0:
+                left += 1
+    return result
 
 
 print(threeSum([-1, 0, 1, 2, -1, -4]))  # [[-1,-1,2], [-1,0,1]]
