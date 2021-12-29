@@ -717,21 +717,30 @@
 
 
 # Problem 1
-def twoSum(nums, target):
-    differences = {}
-    for i, num in enumerate(nums):
-        if target - num not in differences:
-            differences[target - num] = [i]
-        else:
-            differences[target - num].append(i)
-    for i, num in enumerate(nums):
-        difference_list = None
-        if num in differences:
-            difference_list = differences[num]
-        if difference_list != None:
-            for difference in difference_list:
-                if difference != i:
-                    return [difference, i]
+# def twoSum(nums, target):
+#     differences = {}
+#     for i, num in enumerate(nums):
+#         if target - num not in differences:
+#             differences[target - num] = [i]
+#         else:
+#             differences[target - num].append(i)
+#     for i, num in enumerate(nums):
+#         difference_list = None
+#         if num in differences:
+#             difference_list = differences[num]
+#         if difference_list != None:
+#             for difference in difference_list:
+#                 if difference != i:
+#                     return [difference, i]
 
 
-print(twoSum([2, 7, 11, 15], 9))  # [0,1]
+# print(twoSum([2, 7, 11, 15], 9))  # [0,1]
+
+# Problem 15
+def threeSum(nums):
+    pass
+
+
+print(threeSum([-1, 0, 1, 2, -1, -4]))  # [[-1,-1,2], [-1,0,1]]
+print(threeSum([]))  # []
+print(threeSum([0]))  # []
