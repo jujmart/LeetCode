@@ -762,26 +762,38 @@
 # print(threeSum([]))  # []
 # print(threeSum([0]))  # []
 
+
 # Problem 116
-def connect(root):
-    if not root or not root.left:
-        return root
-    queue = [root.left, root.right]
-    level_queue = [2, 2]
-    while len(queue):
-        current_level = level_queue.pop(0)
-        current_node = queue.pop(0)
-        if not len(queue):
-            return root
+# def connect(root):
+#     if not root or not root.left:
+#         return root
+#     queue = [root.left, root.right]
+#     level_queue = [2, 2]
+#     while len(queue):
+#         current_level = level_queue.pop(0)
+#         current_node = queue.pop(0)
+#         if not len(queue):
+#             return root
 
-        if not current_node.left:
-            current_node.next = queue[0]
-            continue
+#         if not current_node.left:
+#             current_node.next = queue[0]
+#             continue
 
-        queue.extend([current_node.left, current_node.right])
-        level_queue.extend([current_level + 1, current_level + 1])
+#         queue.extend([current_node.left, current_node.right])
+#         level_queue.extend([current_level + 1, current_level + 1])
 
-        if current_level == level_queue[0]:
-            current_node.next = queue[0]
+#         if current_level == level_queue[0]:
+#             current_node.next = queue[0]
 
-    return root
+#     return root
+
+
+# Problem 542
+def updateMatrix(mat):
+    pass
+
+
+# [[0,0,0],[0,1,0],[0,0,0]]
+print(updateMatrix([[0, 0, 0], [0, 1, 0], [0, 0, 0]]))
+# [[0,0,0],[0,1,0],[1,2,1]]
+print(updateMatrix([[0, 0, 0], [0, 1, 0], [1, 1, 1]]))
