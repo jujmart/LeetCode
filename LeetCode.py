@@ -1,3 +1,5 @@
+import copy
+
 # Problem 704
 # def search(nums, target):
 #     if target < nums[0] or target > nums[-1]:
@@ -789,11 +791,75 @@
 
 
 # Problem 542
+def nearestZeroMoves(mat, x, y):
+    stack = [[x, y, 0]]
+    min_move = float('Inf')
+    visited = set()
+    while len(stack):
+        new_x = stack[-1][0]
+        new_y = stack[-1][1]
+        move = stack.pop()[2]
+
+        if (new_x, new_y) in visited:
+            continue
+        visited.add((new_x, new_y))
+
+        if mat[new_y][new_x] == 0:
+            min_move = min(move, min_move)
+            continue
+
+        if mat[new_y][new_x] != 'x':
+            min_move = min(min_move, move + mat[new_y][new_x])
+        else:
+            if new_x == 5 and new_y == 7:
+                print(mat)
+            if new_x + 1 < len(mat[0]):
+                stack.append([new_x + 1, new_y, move + 1])
+            if new_x - 1 >= 0:
+                stack.append([new_x - 1, new_y, move + 1])
+            if new_y + 1 < len(mat):
+                stack.append([new_x, new_y + 1, move + 1])
+            if new_y - 1 >= 0:
+                stack.append([new_x, new_y - 1, move + 1])
+
+    return min_move
+
+
 def updateMatrix(mat):
-    pass
+    new_mat = copy.deepcopy(mat)
+    for y in range(len(new_mat)):
+        for x in range(len(new_mat[0])):
+            if new_mat[y][x] != 0:
+                new_mat[y][x] = 'x'
+
+    for y in range(len(new_mat)):
+        for x in range(len(new_mat[0])):
+            if new_mat[y][x] != 0:
+                new_mat[y][x] = nearestZeroMoves(new_mat, x, y)
+    return new_mat
 
 
 # [[0,0,0],[0,1,0],[0,0,0]]
 print(updateMatrix([[0, 0, 0], [0, 1, 0], [0, 0, 0]]))
 # [[0,0,0],[0,1,0],[1,2,1]]
 print(updateMatrix([[0, 0, 0], [0, 1, 0], [1, 1, 1]]))
+# [[1,0,1,1,0,0,1,0,0,1],
+# [0,1,1,0,1,0,1,0,1,1],
+# [0,0,1,0,1,0,0,1,0,0],
+# [1,0,1,0,1,1,1,1,1,1],
+# [0,1,0,1,1,0,0,0,0,1],
+# [0,0,1,0,1,1,1,0,1,0],
+# [0,1,0,1,0,1,0,0,1,1],
+# [1,0,0,0,1,2,1,1,0,1],
+# [2,1,1,1,1,2,1,0,1,0],
+# [3,2,2,1,0,1,0,0,1,1]]
+print(updateMatrix([[1, 0, 1, 1, 0, 0, 1, 0, 0, 1],
+                    [0, 1, 1, 0, 1, 0, 1, 0, 1, 1],
+                    [0, 0, 1, 0, 1, 0, 0, 1, 0, 0],
+                    [1, 0, 1, 0, 1, 1, 1, 1, 1, 1],
+                    [0, 1, 0, 1, 1, 0, 0, 0, 0, 1],
+                    [0, 0, 1, 0, 1, 1, 1, 0, 1, 0],
+                    [0, 1, 0, 1, 0, 1, 0, 0, 1, 1],
+                    [1, 0, 0, 0, 1, 1, 1, 1, 0, 1],
+                    [1, 1, 1, 1, 1, 1, 1, 0, 1, 0],
+                    [1, 1, 1, 1, 0, 1, 0, 0, 1, 1]]))
