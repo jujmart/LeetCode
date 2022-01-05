@@ -790,37 +790,34 @@ import copy
 #     return root
 
 
-# Problem 542
+# Problem 542 works but time limit exceeded
 def nearestZeroMoves(mat, x, y):
-    stack = [[x, y, 0]]
+    queue = [[x, y, 0]]
     min_move = float('Inf')
     visited = set()
-    while len(stack):
-        new_x = stack[-1][0]
-        new_y = stack[-1][1]
-        move = stack.pop()[2]
+    while len(queue):
+        new_x = queue[0][0]
+        new_y = queue[0][1]
+        move = queue.pop(0)[2]
 
         if (new_x, new_y) in visited:
             continue
         visited.add((new_x, new_y))
 
         if mat[new_y][new_x] == 0:
-            min_move = min(move, min_move)
-            continue
+            return min(move, min_move)
 
         if mat[new_y][new_x] != 'x':
             min_move = min(min_move, move + mat[new_y][new_x])
         else:
-            if new_x == 5 and new_y == 7:
-                print(mat)
             if new_x + 1 < len(mat[0]):
-                stack.append([new_x + 1, new_y, move + 1])
+                queue.append([new_x + 1, new_y, move + 1])
             if new_x - 1 >= 0:
-                stack.append([new_x - 1, new_y, move + 1])
+                queue.append([new_x - 1, new_y, move + 1])
             if new_y + 1 < len(mat):
-                stack.append([new_x, new_y + 1, move + 1])
+                queue.append([new_x, new_y + 1, move + 1])
             if new_y - 1 >= 0:
-                stack.append([new_x, new_y - 1, move + 1])
+                queue.append([new_x, new_y - 1, move + 1])
 
     return min_move
 
