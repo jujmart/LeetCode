@@ -791,6 +791,7 @@ import copy
 
 
 # Problem 542 works but time limit exceeded
+# the way to complete this one in the required time limit is to determine the distance away at each spot going over once and then backwards
 def nearestZeroMoves(mat, x, y):
     queue = [[x, y, 0]]
     min_move = float('Inf')
