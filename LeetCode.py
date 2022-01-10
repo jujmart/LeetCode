@@ -792,72 +792,80 @@ import copy
 
 # Problem 542 works but time limit exceeded
 # the way to complete this one in the required time limit is to determine the distance away at each spot going over once and then backwards
-def nearestZeroMoves(mat, x, y):
-    queue = [[x, y, 0]]
-    min_move = float('Inf')
-    visited = set()
-    while len(queue):
-        new_x = queue[0][0]
-        new_y = queue[0][1]
-        move = queue.pop(0)[2]
+# def nearestZeroMoves(mat, x, y):
+#     queue = [[x, y, 0]]
+#     min_move = float('Inf')
+#     visited = set()
+#     while len(queue):
+#         new_x = queue[0][0]
+#         new_y = queue[0][1]
+#         move = queue.pop(0)[2]
 
-        if (new_x, new_y) in visited:
-            continue
-        visited.add((new_x, new_y))
+#         if (new_x, new_y) in visited:
+#             continue
+#         visited.add((new_x, new_y))
 
-        if mat[new_y][new_x] == 0:
-            return min(move, min_move)
+#         if mat[new_y][new_x] == 0:
+#             return min(move, min_move)
 
-        if mat[new_y][new_x] != 'x':
-            min_move = min(min_move, move + mat[new_y][new_x])
-        else:
-            if new_x + 1 < len(mat[0]):
-                queue.append([new_x + 1, new_y, move + 1])
-            if new_x - 1 >= 0:
-                queue.append([new_x - 1, new_y, move + 1])
-            if new_y + 1 < len(mat):
-                queue.append([new_x, new_y + 1, move + 1])
-            if new_y - 1 >= 0:
-                queue.append([new_x, new_y - 1, move + 1])
+#         if mat[new_y][new_x] != 'x':
+#             min_move = min(min_move, move + mat[new_y][new_x])
+#         else:
+#             if new_x + 1 < len(mat[0]):
+#                 queue.append([new_x + 1, new_y, move + 1])
+#             if new_x - 1 >= 0:
+#                 queue.append([new_x - 1, new_y, move + 1])
+#             if new_y + 1 < len(mat):
+#                 queue.append([new_x, new_y + 1, move + 1])
+#             if new_y - 1 >= 0:
+#                 queue.append([new_x, new_y - 1, move + 1])
 
-    return min_move
-
-
-def updateMatrix(mat):
-    new_mat = copy.deepcopy(mat)
-    for y in range(len(new_mat)):
-        for x in range(len(new_mat[0])):
-            if new_mat[y][x] != 0:
-                new_mat[y][x] = 'x'
-
-    for y in range(len(new_mat)):
-        for x in range(len(new_mat[0])):
-            if new_mat[y][x] != 0:
-                new_mat[y][x] = nearestZeroMoves(new_mat, x, y)
-    return new_mat
+#     return min_move
 
 
-# [[0,0,0],[0,1,0],[0,0,0]]
-print(updateMatrix([[0, 0, 0], [0, 1, 0], [0, 0, 0]]))
-# [[0,0,0],[0,1,0],[1,2,1]]
-print(updateMatrix([[0, 0, 0], [0, 1, 0], [1, 1, 1]]))
-# [[1,0,1,1,0,0,1,0,0,1],
-# [0,1,1,0,1,0,1,0,1,1],
-# [0,0,1,0,1,0,0,1,0,0],
-# [1,0,1,0,1,1,1,1,1,1],
-# [0,1,0,1,1,0,0,0,0,1],
-# [0,0,1,0,1,1,1,0,1,0],
-# [0,1,0,1,0,1,0,0,1,1],
-# [1,0,0,0,1,2,1,1,0,1],
-# [2,1,1,1,1,2,1,0,1,0],
-# [3,2,2,1,0,1,0,0,1,1]]
-print(updateMatrix([[1, 0, 1, 1, 0, 0, 1, 0, 0, 1],
-                    [0, 1, 1, 0, 1, 0, 1, 0, 1, 1],
-                    [0, 0, 1, 0, 1, 0, 0, 1, 0, 0],
-                    [1, 0, 1, 0, 1, 1, 1, 1, 1, 1],
-                    [0, 1, 0, 1, 1, 0, 0, 0, 0, 1],
-                    [0, 0, 1, 0, 1, 1, 1, 0, 1, 0],
-                    [0, 1, 0, 1, 0, 1, 0, 0, 1, 1],
-                    [1, 0, 0, 0, 1, 1, 1, 1, 0, 1],
-                    [1, 1, 1, 1, 1, 1, 1, 0, 1, 0],
-                    [1, 1, 1, 1, 0, 1, 0, 0, 1, 1]]))
+# def updateMatrix(mat):
+#     new_mat = copy.deepcopy(mat)
+#     for y in range(len(new_mat)):
+#         for x in range(len(new_mat[0])):
+#             if new_mat[y][x] != 0:
+#                 new_mat[y][x] = 'x'
+
+#     for y in range(len(new_mat)):
+#         for x in range(len(new_mat[0])):
+#             if new_mat[y][x] != 0:
+#                 new_mat[y][x] = nearestZeroMoves(new_mat, x, y)
+#     return new_mat
+
+
+# # [[0,0,0],[0,1,0],[0,0,0]]
+# print(updateMatrix([[0, 0, 0], [0, 1, 0], [0, 0, 0]]))
+# # [[0,0,0],[0,1,0],[1,2,1]]
+# print(updateMatrix([[0, 0, 0], [0, 1, 0], [1, 1, 1]]))
+# # [[1,0,1,1,0,0,1,0,0,1],
+# # [0,1,1,0,1,0,1,0,1,1],
+# # [0,0,1,0,1,0,0,1,0,0],
+# # [1,0,1,0,1,1,1,1,1,1],
+# # [0,1,0,1,1,0,0,0,0,1],
+# # [0,0,1,0,1,1,1,0,1,0],
+# # [0,1,0,1,0,1,0,0,1,1],
+# # [1,0,0,0,1,2,1,1,0,1],
+# # [2,1,1,1,1,2,1,0,1,0],
+# # [3,2,2,1,0,1,0,0,1,1]]
+# print(updateMatrix([[1, 0, 1, 1, 0, 0, 1, 0, 0, 1],
+#                     [0, 1, 1, 0, 1, 0, 1, 0, 1, 1],
+#                     [0, 0, 1, 0, 1, 0, 0, 1, 0, 0],
+#                     [1, 0, 1, 0, 1, 1, 1, 1, 1, 1],
+#                     [0, 1, 0, 1, 1, 0, 0, 0, 0, 1],
+#                     [0, 0, 1, 0, 1, 1, 1, 0, 1, 0],
+#                     [0, 1, 0, 1, 0, 1, 0, 0, 1, 1],
+#                     [1, 0, 0, 0, 1, 1, 1, 1, 0, 1],
+#                     [1, 1, 1, 1, 1, 1, 1, 0, 1, 0],
+#                     [1, 1, 1, 1, 0, 1, 0, 0, 1, 1]]))
+
+# Problem 784
+def letterCasePermutation(s):
+    pass
+
+
+print(letterCasePermutation("a1b2"))  # ["a1b2","a1B2","A1b2","A1B2"]
+print(letterCasePermutation("3z4"))  # ["3z4","3Z4"]
