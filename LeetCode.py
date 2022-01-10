@@ -864,7 +864,23 @@ import copy
 
 # Problem 784
 def letterCasePermutation(s):
-    pass
+    digits = "1234567890"
+    results = []
+    if s[0] in digits:
+        results.append(s[0])
+    else:
+        results.extend([s[0].lower(), s[0].upper()])
+    for char in s[1:]:
+        if char in digits:
+            for i in range(len(results)):
+                results[i] += char
+        else:
+            result_len = len(results)
+            for i in range(result_len):
+                results.append(results[i] + char.upper())
+                results[i] += char.lower()
+
+    return set(results)
 
 
 print(letterCasePermutation("a1b2"))  # ["a1b2","a1B2","A1b2","A1B2"]
