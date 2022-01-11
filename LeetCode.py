@@ -887,19 +887,28 @@ import copy
 # print(letterCasePermutation("3z4"))  # ["3z4","3Z4"]
 
 
-# Problem 70
-memo = {}
+# # Problem 70
+# memo = {}
 
 
-def climbStairs(n):
-    if n in memo:
-        return memo[n]
-    if n <= 3:
-        return n
-    memo[n] = climbStairs(n - 1) + climbStairs(n - 2)
-    return memo[n]
+# def climbStairs(n):
+#     if n in memo:
+#         return memo[n]
+#     if n <= 3:
+#         return n
+#     memo[n] = climbStairs(n - 1) + climbStairs(n - 2)
+#     return memo[n]
 
 
-print(climbStairs(2))  # 2
-print(climbStairs(3))  # 3
-print(climbStairs(5))  # 8
+# print(climbStairs(2))  # 2
+# print(climbStairs(3))  # 3
+# print(climbStairs(5))  # 8
+
+
+# Problem 198
+def rob(nums):
+    pass
+
+
+print(rob([1,2,3,1]))  # 4
+print(rob([2,77,9,3,1]))  # 12
