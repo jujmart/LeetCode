@@ -907,8 +907,13 @@ import copy
 
 # Problem 198
 def rob(nums):
-    pass
+    if len(nums) == 1:
+        return nums[0]
+    new_nums = [nums[0], nums[1]] + [0]*(len(nums) - 2)
+    for i in range(2, len(nums)):
+        new_nums[i] = nums[i] + max(new_nums[i - 3], new_nums[i - 2])
+    return max(new_nums[-1], new_nums[-2])
 
 
-print(rob([1,2,3,1]))  # 4
-print(rob([2,77,9,3,1]))  # 12
+print(rob([1, 2, 3, 1]))  # 4
+print(rob([2, 7, 9, 3, 1]))  # 12
