@@ -894,11 +894,12 @@ memo = {}
 def climbStairs(n):
     if n in memo:
         return memo[n]
-    if n <= 1:
+    if n <= 3:
         return n
     memo[n] = climbStairs(n - 1) + climbStairs(n - 2)
-    return memo[n] + 1
+    return memo[n]
 
 
 print(climbStairs(2))  # 2
 print(climbStairs(3))  # 3
+print(climbStairs(5))  # 8
